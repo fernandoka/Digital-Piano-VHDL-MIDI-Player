@@ -1,1 +1,1 @@
-# Digital-Piano-VHDL-MIDI-SOC
+# Digital-Piano-VHDL-MIDI-Player
