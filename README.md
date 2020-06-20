@@ -24,7 +24,7 @@ The android app is named as MySoc, and is aviable to anyone using the GitHub rep
 Requirements
 --------------
 * **Nexys 4 DDR** or **Nexys A7**: [Nexys 4 DDR reference manual](https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/start) and [Nexys A7 reference manual](https://reference.digilentinc.com/reference/programmable-logic/nexys-a7/start)
-* **Vivado 2018.2 Installation** : [Xilinx Vivado downloads] (https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html)
+* **Vivado 2018.2 Installation** : [Xilinx Vivado downloads](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html)
 * **MicroUSB Cable**
 * **Pmod BT2** : [Digilent Pmod BT2 reference manual](https://reference.digilentinc.com/reference/pmod/pmodbt2/reference-manual?redirect=1)
 * **Pmod I2S2** : [Digilent Pmod I2S2 reference manual](https://reference.digilentinc.com/reference/pmod/pmodi2s2/reference-manual)
