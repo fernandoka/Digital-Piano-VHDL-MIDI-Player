@@ -36,7 +36,7 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 7. Configure flash with the .prm and .mcs files included in the **FlashDataForSetup.7z** compress file, inside of **PRM-MCS** folder.
 8. In the green bar at the top of the Vivado window, click **Program device**.
 9. In the Program Device Wizard, enter "\<archive extracted location\>MIDI_Soc/MIDI_Soc.runs/impl_1/MIDI_Soc.bit" into the "Bitstream file" field. Then click **Program**.
-10. Now Nexys 4 DDR or Nexys A7 is programmed with this project. The first thing to do is press the BTNC button in order to store in the ram memory all the data that is needed to play a MIDI file.
+10. Now Nexys 4 DDR or Nexys A7 is programmed with this project. The first thing to do is press the BTNC button in order to store in ram memory all the data that is needed to play a MIDI file.
 11. Enjoy !! :)
 
 | Button | Function                                                          |
