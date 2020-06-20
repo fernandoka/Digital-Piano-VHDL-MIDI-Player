@@ -12,7 +12,7 @@
 -- 
 -- Dependencies: 
 -- 
--- Revision 1.8
+-- Revision 1.9
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
@@ -95,12 +95,14 @@ architecture Behavioral of MIDI_Soc is
 ----------------------------------------------------------------------------------
 -- CONSTANTS DECLARATIONS
 ---------------------------------------------------------------------------------- 
-  constant FREQ             : natural := 75_000; -- Freq provided by RamCntrl component
-  constant BAUDRATE_BL      : natural := 115200;
-  constant FIFO_DEPTH_BL    : natural := 8;
-  constant NUM_NOTES_GEN    : natural := 16;
+    constant NUM_NOTES_GEN    : natural := 16;
+    constant MAX_NUM_TRACKS   : natural := 6;
+    constant REVERB_TIME      : real    := 100.0;
 
-  constant MAX_NUM_TRACKS   : natural := 6;
+    constant FREQ             : natural := 75_000; -- Freq provided by RamCntrl component
+    constant BAUDRATE_BL      : natural := 115200;
+    constant FIFO_DEPTH_BL    : natural := 8;
+
 
 ----------------------------------------------------------------------------------
 -- COMMON USE SIGNALS
@@ -574,7 +576,7 @@ my_midiParser: MidiParser
 -- KEYBOARD CONTROLLER COMPONENT, READ KEYBOARD CMDs TO TURN ON/OFF THE NOTES
 -----------------------------------------------------------------------------------------
 my_KeyboardCntrl: KeyboardCntrl
-  generic map( NUM_NOTES_GEN => NUM_NOTES_GEN)
+  generic map( NUM_NOTES_GEN => NUM_NOTES_GEN, REVERB_TIME => REVERB_TIME)
   port map( 
       rst_n                       => rst_n,
       clk                         => ui_clk,

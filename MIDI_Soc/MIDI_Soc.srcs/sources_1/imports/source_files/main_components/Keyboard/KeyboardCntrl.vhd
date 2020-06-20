@@ -13,7 +13,7 @@
 -- Dependencies: 
 -- 
 -- Revision:
--- Revision 2.2
+-- Revision 2.3
 -- Additional Comments:
 --		Command format: cmd(3 downto 0) = Velocity
 --					 	cmd(11 downto 4) = NoteCode
@@ -37,7 +37,9 @@ use IEEE.NUMERIC_STD.ALL;
 use WORK.MY_COMMON.ALL;
 
 entity KeyboardCntrl is
-  Generic ( NUM_NOTES_GEN   :   in  natural );
+  Generic ( NUM_NOTES_GEN   :   in  natural; 
+            REVERB_TIME     :   in  real
+  );
   Port ( 
         rst_n           			:   in  std_logic;
         clk             			:   in  std_logic;
@@ -960,7 +962,7 @@ my_gen: NotesGenerator
 -- 9 cycles for Universal generators pipelined operations, log2(NUM_NOTES_GEN) cycles for fix sum operations
 -- (48800hz)/1000 * time in ms
 Reverb: ReverbComponent
-  generic map(FIFO_DEPTH=>integer((FS/1000.0)*100.0), NUM_CYCLES_SAMPLE_IN=>log2(NUM_NOTES_GEN)+9)
+  generic map(FIFO_DEPTH=>integer((FS/1000.0)*REVERB_TIME), NUM_CYCLES_SAMPLE_IN=>log2(NUM_NOTES_GEN)+9)
   port map(
     -- Host side
     rst_n     	 => rst_n,

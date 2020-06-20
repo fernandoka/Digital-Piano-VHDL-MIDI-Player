@@ -13,7 +13,7 @@
 -- Dependencies: 
 -- 
 -- Revision:
--- Revision 0.6
+-- Revision 0.7
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
@@ -592,35 +592,37 @@ component NotesGenerator is
 end component;
 
 component KeyboardCntrl is
-    Generic ( NUM_NOTES_GEN   :   in  natural );
+  Generic ( NUM_NOTES_GEN   :   in  natural; 
+          REVERB_TIME     :   in  real
+);
     Port ( 
-          rst_n                         :   in  std_logic;
-          clk                           :   in  std_logic;
-          cen                           :   in  std_logic;
-          midiParserOnOff               :   in  std_logic;
-          externInterfaceStatus         :   in  std_logic;
-          aviableCmd                    :   in  std_logic;    
-          cmdKeyboard                   :   in  std_logic_vector(14 downto 0);
-          keyboard_ack                  :   out  std_logic;
-          
-          -- For Reverb component
-          reverbStatus                  :   in  std_logic;
-
-
-          --IIS side    
-          sampleRqt                     :   in  std_logic;
-          sampleOut                     :   out std_logic_vector(23 downto 0);
-          
-          --Keyboard Info
-          numGensOn                     :   out std_logic_vector(log2(NUM_NOTES_GEN) downto 0);
-                  
-          -- Mem side
-          mem_emptyBuffer               :   in  std_logic;
-          mem_CmdReadResponse           :   in  std_logic_vector(15+log2(NUM_NOTES_GEN) downto 0); 
-          mem_fullBuffer                :   in  std_logic; 
-          mem_CmdReadRequest            :   out std_logic_vector(25+log2(NUM_NOTES_GEN) downto 0);
-          mem_readResponseBuffer        :   out std_logic;
-          mem_writeReciveBuffer         :   out std_logic -- One cycle high to send a new CmdReadRqt
+      rst_n                         :   in  std_logic;
+      clk                           :   in  std_logic;
+      cen                           :   in  std_logic;
+      midiParserOnOff               :   in  std_logic;
+      externInterfaceStatus         :   in  std_logic;
+      aviableCmd                    :   in  std_logic;    
+      cmdKeyboard                   :   in  std_logic_vector(14 downto 0);
+      keyboard_ack                  :   out  std_logic;
+      
+      -- For Reverb component
+      reverbStatus                  :   in  std_logic;
+    
+    
+      --IIS side    
+      sampleRqt                     :   in  std_logic;
+      sampleOut                     :   out std_logic_vector(23 downto 0);
+      
+      --Keyboard Info
+      numGensOn                     :   out std_logic_vector(log2(NUM_NOTES_GEN) downto 0);
+              
+      -- Mem side
+      mem_emptyBuffer               :   in  std_logic;
+      mem_CmdReadResponse           :   in  std_logic_vector(15+log2(NUM_NOTES_GEN) downto 0); 
+      mem_fullBuffer                :   in  std_logic; 
+      mem_CmdReadRequest            :   out std_logic_vector(25+log2(NUM_NOTES_GEN) downto 0);
+      mem_readResponseBuffer        :   out std_logic;
+      mem_writeReciveBuffer         :   out std_logic -- One cycle high to send a new CmdReadRqt
     
     );
 end component;

@@ -47,8 +47,8 @@ entity CmdKeyboardSequencer is
 		
   );
 -- Attributes for debug
---    attribute   dont_touch    :   string;
---    attribute   dont_touch  of  CmdKeyboardSequencer  :   entity  is  "true";
+    attribute   dont_touch    :   string;
+    attribute   dont_touch  of  CmdKeyboardSequencer  :   entity  is  "true";
 end CmdKeyboardSequencer;
 
 architecture Behavioral of CmdKeyboardSequencer is
