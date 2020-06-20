@@ -18,8 +18,7 @@ The android app is named as MySoc, and is aviable to anyone using the GitHub rep
 | BTNU   | Start/Stop playing MIDI file 									 |
 | BTNC   | Start ram memory inicialization                                   |                                    
 | BTNL   | Start/Stop reverb effect		                                     |
-| BTND   | Turn On/Off the bluethooth connection with 						 |
-|		   the external interface                 							 |					
+| BTND   | Turn On/Off the bluethooth connection with the external interface 						 |
 
 
 Requirements
