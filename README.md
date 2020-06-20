@@ -26,8 +26,8 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 * **Pmod I2S2** : [Digilent Pmod I2S2 reference manual](https://reference.digilentinc.com/reference/pmod/pmodi2s2/reference-manual)
 * **Android Phone** : To use the external interface
 
-Setup
---------------
+## Setup
+
 1. Download and extract the first release 7z files from this repository's [Releases Page](https://github.com/fernandoka/Digital-Piano-VHDL-MIDI-Player/releases).
 2. Open the project in Vivado 2018.2 by double clicking on the included XPR file found at "\<archive extracted location\>/MIDI_Soc/MIDI_Soc.xpr".
 3. In the Flow Navigator panel on the left side of the Vivado window, click **Open Hardware Manager**.
