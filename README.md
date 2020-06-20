@@ -10,16 +10,13 @@ Due to the before-mentioned features, we can refer to this project as a hardware
 The android app is named as MySoc, and is located in the GitHub repository that follows: https://github.com/fernandoka/MySoc-Android-app
 
 
+Purpose
+--------------
+The purpose of this project is the creation of a base open-design to develop a polyphonic digital keyboard that can play a MIDI files. 
 
+This project aims to be a solid base for future improvements in MIDI file compatibility. At the same time, this project intends to be the first approach to wavetable sound synthesis which is commonly used in current digital pianos. 
 
-
-| Button | Function                                                          |
-| ------ | ----------------------------------------------------------------- |
-| BTNU   | Start/Stop playing MIDI file 									 |
-| BTNC   | Start ram memory inicialization                                   |                                    
-| BTNL   | Start/Stop reverb effect		                                     |
-| BTND   | Turn On/Off the bluethooth connection with the external interface 						 |
-
+The hardware design is developed to be implemented in an FPGA platform, allowing the component reconfiguration of the system. This design follows a modular philosophy and could be configured to adjust the polyphony degree and the maximum number of MIDI tracks that the system can play.
 
 Requirements
 --------------
@@ -42,3 +39,10 @@ Setup
 9. In the Program Device Wizard, enter "\<archive extracted location\>MIDI_Soc/MIDI_Soc.runs/impl_1/MIDI_Soc.bit" into the "Bitstream file" field. Then click **Program**.
 10. Now Nexys 4 DDR or Nexys A7 is programmed with this project. The first thing to do is press the BTNC button in order to store in the ram memory all the data that is needed to play a MIDI file.
 11. Enjoy !! :)
+
+| Button | Function                                                          |
+| ------ | ----------------------------------------------------------------- |
+| BTNU   | Start/Stop playing MIDI file 									 |
+| BTNC   | Start ram memory inicialization                                   |                                    
+| BTNL   | Start/Stop reverb effect		                                     |
+| BTND   | Turn On/Off the bluethooth connection with the external interface 						 |
