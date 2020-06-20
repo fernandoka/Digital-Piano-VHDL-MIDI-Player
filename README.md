@@ -7,7 +7,7 @@ Besides, using an android app as an external interface, allow the user to play n
 
 Due to the before-mentioned features, we can refer to this project as a hardware design of a basic digital piano.
 
-The android app is named as MySoc, and is aviable to anyone using the GitHub repository that follows: https://github.com/fernandoka/MySoc-Android-app
+The android app is named as MySoc, and is located in the GitHub repository that follows: https://github.com/fernandoka/MySoc-Android-app
 
 
 
