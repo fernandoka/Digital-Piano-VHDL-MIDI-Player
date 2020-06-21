@@ -47,7 +47,7 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 | BTND   | Turn On/Off the bluethooth connection with the external interface 						 |
 
 ## Additional Notes
-The sound samples that this project use, are originally .wav files from the [FreePats project](http://freepats.zenvoid.org/Piano/acoustic-grand-piano.html) and their orignal author of these audio recording files, is Alexander Holm.
+The sound samples that this project use, are originally .wav files from the [FreePats project](http://freepats.zenvoid.org/Piano/acoustic-grand-piano.html) and the orignal author of these audio recording files, is Alexander Holm.
 
 Downloaded from the "Salamander Grand Piano" section
 
