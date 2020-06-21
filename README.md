@@ -33,7 +33,7 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 3. In the Flow Navigator panel on the left side of the Vivado window, click **Open Hardware Manager**.
 4. Plug the Nexys 4 DDR or Nexys A7 into the computer using a MicroUSB cable.
 6. In the green bar at the top of the Vivado window, click **Open target**. Select **Auto connect** from the drop down menu.
-7. Configure flash with the .prm and .mcs files included in the **FlashDataForSetup.7z** compress file, inside of **PRM-MCS** folder.
+7. Configure flash with the .prm and .mcs files included in the **MIDI_Soc-FlashConfig.7z** compress file, inside of **PRM-MCS** folder.
 8. In the green bar at the top of the Vivado window, click **Program device**.
 9. In the Program Device Wizard, enter "\<archive extracted location\>MIDI_Soc/MIDI_Soc.runs/impl_1/MIDI_Soc.bit" into the "Bitstream file" field. Then click **Program**.
 10. Now Nexys 4 DDR or Nexys A7 is programmed with this project. The first thing to do is press the BTNC button in order to store in ram memory all the data that is needed to play a MIDI file.
@@ -47,11 +47,8 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 | BTND   | Turn On/Off the bluethooth connection with the external interface 						 |
 
 ## Additional Notes
-The .wav files in the SameSize-1.06MB are originally from the [FreePats project](http://freepats.zenvoid.org/Piano/acoustic-grand-piano.html)
+The sound samples that this project use, are originally .wav files from the [FreePats project](http://freepats.zenvoid.org/Piano/acoustic-grand-piano.html) and their orignal author of these audio recording files, is Alexander Holm.
 
 Downloaded from the "Salamander Grand Piano" section
 
 File entry in the site -> "1.18GiB Best quality. 48kHz 24bit samples"
-
-Original author of the audio recording files, Alexander Holm.
-
