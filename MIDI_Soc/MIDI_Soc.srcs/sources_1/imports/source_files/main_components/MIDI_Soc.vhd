@@ -102,7 +102,8 @@ architecture Behavioral of MIDI_Soc is
     constant FREQ             : natural := 75_000; -- Freq provided by RamCntrl component
     constant BAUDRATE_BL      : natural := 115200;
     constant FIFO_DEPTH_BL    : natural := 8;
-
+    
+    constant DATA_BLOCK_INI_2B_ADDR    :   natural := 1912894; -- 0x1D303E = 0x3A607C/2
 
 ----------------------------------------------------------------------------------
 -- COMMON USE SIGNALS
@@ -452,6 +453,7 @@ ControllerComponent: MainController
 -- SETUP COMPONENT, FILL THE MEMORY WITH SAMPLES, CONSTANTS AND MIDI EXAMPLE FILE
 ---------------------------------------------------------------------------------- 
 SetupComponent: MySetup
+  generic map (START_ADDR => DATA_BLOCK_INI_2B_ADDR)
   port map(
         clk         => ui_clk,
         rst_n       => rst_n,      

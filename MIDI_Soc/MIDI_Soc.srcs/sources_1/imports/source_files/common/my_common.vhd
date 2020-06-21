@@ -354,6 +354,7 @@ end component;
 
 -- Setup components
 component MySetup is
+  Generic(START_ADDR    :   in  natural); -- 2B Addr
   Port (
       clk           :   in  std_logic;
       rst_n         :   in std_logic;

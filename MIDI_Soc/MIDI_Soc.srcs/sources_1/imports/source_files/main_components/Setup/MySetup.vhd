@@ -27,6 +27,7 @@ library UNISIM;
 use UNISIM.VComponents.all;
 
 entity MySetup is
+  Generic(START_ADDR    :   in  natural); -- 2B Addr
   Port (
       clk           :   in  std_logic;
       rst_n         :   in std_logic;
@@ -53,12 +54,6 @@ end MySetup;
 
 architecture Behavioral of MySetup is
 
-constant MAX_ADDR : unsigned (22 downto 0) :=(others=>'1');
-
--- Flash Commands    
-constant REMS_CMD     : std_logic_vector (7 downto 0) := X"90";
-constant READ_CMD     : std_logic_vector (7 downto 0) := X"03";
-constant DUALREAD_CMD : std_logic_vector (7 downto 0) := X"3B";
      
 ----------------------------------------------------------------------------------
 -- SIGNALS FOR SPI
@@ -71,10 +66,8 @@ signal  spiDataIn       :   std_logic_vector (7 downto 0);
 signal  spiDataOut      :   std_logic_vector (31 downto 0);
 signal  spiDataInRdy    :   std_logic;
 signal  spiBusy         :   std_logic;
-signal  CommandPlusAddr : std_logic_vector (31 downto 0);
 
 signal  sck             :   std_logic;
-signal  spiAddr         :   std_logic_vector(23 downto 0);
 signal  dualMode        :   std_logic;     
      
 begin
@@ -135,31 +128,35 @@ spiInterface : fastSpiMaster_Dual
 ----------------------------------------------------------------------------------
 -- FSM, READ FROM SPI AND SEND WRITE CMD TO MEM
 ----------------------------------------------------------------------------------
-
-CommandPlusAddr <=  DUALREAD_CMD & spiAddr;
  
 FSM:
 process(rst_n, clk,memWrWorking)
+    
+    constant MAX_ADDR : unsigned (22 downto 0) := (others=>'1');
+    constant INI_ADDR : unsigned (22 downto 0) := to_unsigned(START_ADDR,23);
+    
+    -- Flash Commands    
+    constant REMS_CMD     : std_logic_vector (7 downto 0) := X"90";
+    constant READ_CMD     : std_logic_vector (7 downto 0) := X"03";
+    constant DUALREAD_CMD : std_logic_vector (7 downto 0) := X"3B";
+    
     
     type state_type is (
         Idle, SendDummy, WaitDummyRecv, ReadFromSpi, readByte0, readByte1,FinishedSetup
     );
     
-    variable state : state_type;
-    variable addValSpi : unsigned (22 downto 0);
+    variable state          :   state_type;
+    variable addrValSpi     :   unsigned (22 downto 0);
     variable finSetupFlag   :   std_logic;
 	
 begin
-    -- Concurrent sentences
-    spiAddr <=(others=>'0');
-    spiAddr(23 downto 1) <= std_logic_vector(addValSpi);
     
 	fin <= finSetupFlag;
 
 	
   if rst_n = '0' then
     state := Idle;
-    addValSpi := (others=>'0');
+    addrValSpi := INI_ADDR;
     finSetupFlag :='0';
     wrMemCMD <='0';
     dualMode <='0';
@@ -196,7 +193,7 @@ begin
                    spiDataOutRdy  <= '1';
                    contMode <= '1';
                    dualMode <='1';
-                   spiDataOut <= CommandPlusAddr; -- Inst = DUALREAD_CMD & ini Addr
+                   spiDataOut <=  DUALREAD_CMD & std_logic_vector(addrValSpi) & '0'; -- Inst = DUALREAD_CMD & ini Addr
                    state := readByte0;
                end if;
              
@@ -204,7 +201,7 @@ begin
                  if spiDataInRdy='0' then
                      state := readByte1;
                      memCmd(7 downto 0) <= spiDataIn;
-                     if addValSpi = MAX_ADDR then
+                     if addrValSpi = MAX_ADDR then
                          contMode <='0'; -- The next read it's going to be the last one
                     end if;
                  end if;      
@@ -218,11 +215,11 @@ begin
                             -- Prepare write CMD order
                             wrMemCMD <='1';
                             -- Buile write CMD
-                            memCmd(41 downto 8) <="000" & std_logic_vector(addValSpi) & spiDataIn;
-                            if addValSpi < MAX_ADDR then
-                                addValSpi := addValSpi+1;
+                            memCmd(41 downto 8) <="000" & std_logic_vector(addrValSpi-INI_ADDR) & spiDataIn;
+                            if addrValSpi < MAX_ADDR then
+                                addrValSpi := addrValSpi+1;
                                 state := readByte0;
-                             elsif addValSpi = MAX_ADDR then
+                             elsif addrValSpi = MAX_ADDR then
                                  state := FinishedSetup;
                              end if;
                         else
