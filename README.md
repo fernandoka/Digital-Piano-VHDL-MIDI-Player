@@ -27,15 +27,16 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 * **Android Phone** : To use the external interface
 
 ## Setup
-
 1. Download and extract the first release 7z files from this repository's [Releases Page](https://github.com/fernandoka/Digital-Piano-VHDL-MIDI-Player/releases).
 2. Open the project in Vivado 2018.2 by double clicking on the included XPR file found at "\<archive extracted location\>/MIDI_Soc/MIDI_Soc.xpr".
 3. In the Flow Navigator panel on the left side of the Vivado window, click **Open Hardware Manager**.
 4. Plug the Nexys 4 DDR or Nexys A7 into the computer using a MicroUSB cable.
 6. In the green bar at the top of the Vivado window, click **Open target**. Select **Auto connect** from the drop down menu.
-7. Configure flash with the .prm and .mcs files included in the **MIDI_Soc-FlashConfig.7z** compress file, inside of **PRM-MCS** folder.
-8. In the green bar at the top of the Vivado window, click **Program device**.
-9. In the Program Device Wizard, enter "\<archive extracted location\>MIDI_Soc/MIDI_Soc.runs/impl_1/MIDI_Soc.bit" into the "Bitstream file" field. Then click **Program**.
+7. Select the entry **s25fl128sxx...x0-spi-x1_x2_x4** in the Hardware Window, and click the right button of the mouse.
+8. Click the entry **Program Configuration Memory Device...** and select in the corresponding fields of the new window, the .mcs and .prm files included in **MIDI_Soc-FlashConfig.7z**.
+7. Click the buttons **Apply** and after click **OK**. The write process of the flash memory will start, just wait.
+8. Disconenct the board from the PC and configure the JP1 to **QSPI**.
+9. Connenct the board to the PC and wait until the FPGA is configured with the .bit file which is included in the .mcs file.
 10. Now Nexys 4 DDR or Nexys A7 is programmed with this project. The first thing to do is press the BTNC button in order to store in ram memory all the data that is needed to play a MIDI file.
 11. Enjoy !! :)
 
