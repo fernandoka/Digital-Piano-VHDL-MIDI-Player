@@ -52,17 +52,17 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 | -------- | -----------------------------------------------|
 | Start/Stop playing MIDI file    | 7E			    |
 | Start/Stop reverb effect        | 5F		            |
-| Note On                         | 2 nn 0v                |                     
-| Note Off                        | 1 nn 0v                |                    
+| Note On                         | 02 nn 0v                |                     
+| Note Off                        | 01 nn 0v                |                    
 | Upload MIDI file to the system  | 67 <MIDI file raw data> |
 
 - *nn* corresponds with the note code. Possible values are defined by the interval (hex numbers) [15, 6C]
 - *v* corresponds with the note intensity (volume). Possible values are (hex numbers):
-    - *0*: Normal
-    - *1*: Very soft
-    - *2*: soft
-    - *4*: Hight
-    - *8*: Very hight
+    - *0* : Normal
+    - *1* : Very soft
+    - *2* : soft
+    - *4* : Hight
+    - *8* : Very hight
 
 ## Additional Notes
 The sound samples that this project use, are originally .wav files from the [FreePats project](http://freepats.zenvoid.org/Piano/acoustic-grand-piano.html) and the orignal author of these audio recording files, is Alexander Holm.
