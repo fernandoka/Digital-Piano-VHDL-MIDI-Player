@@ -46,7 +46,7 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 | BTNL   | Start/Stop reverb effect		                             |
 | BTND   | Turn On/Off the bluethooth connection with the external interface |
 
-12. To upload MIDI files to the board, you should try to use the [app MySoc](https://github.com/fernandoka/MySoc-Android-app). If not you can also use your PC to establish a serial port connection using bluehtooth (using a terminal emulator software, [Tera Term](https://osdn.net/projects/ttssh2/releases/) is what I usually use) and then send the corresponding codes. The next list shows the differents code pattern to interact with the board: 
+12. To upload MIDI files to the board, you should try to use the [app MySoc](https://github.com/fernandoka/MySoc-Android-app). If not you can also use your PC to establish a serial port connection via bluehtooth (using a terminal emulator software, [Tera Term](https://osdn.net/projects/ttssh2/releases/) is what I usually use) and then send the corresponding codes. The next list shows the differents code pattern to interact with the board: 
 
 | Function | Hexadecimal Codes                              |
 | -------- | -----------------------------------------------|
