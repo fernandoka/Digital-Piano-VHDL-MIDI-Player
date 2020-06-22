@@ -40,28 +40,28 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 10. Now Nexys 4 DDR or Nexys A7 is programmed with this project. The first thing to do is press the BTNC button in order to store in ram memory all the data that is needed to play a MIDI file.
 | Button | Function                                                          |
 | ------ | ----------------------------------------------------------------- |
-| BTNU   | Start/Stop playing MIDI file 									                   |
+| BTNU   | Start/Stop playing MIDI file                                      |
 | BTNC   | Start ram memory inicialization                                   |                                    
-| BTNL   | Start/Stop reverb effect		                                       |
+| BTNL   | Start/Stop reverb effect		                             |
 | BTND   | Turn On/Off the bluethooth connection with the external interface |
 
 12. To upload MIDI files to the board, you should try to use the [app MySoc](https://github.com/fernandoka/MySoc-Android-app). If not you can also establish a serial port connection using bluehtoth (using a terminal emulator software, [Tera Term](https://osdn.net/projects/ttssh2/releases/) could be a good example) and then send the corresponding codes. The next list shows the differents code to interact with the board: 
 
 | Function | Hexadecimal Codes                              |
 | -------- | -----------------------------------------------|
-| Start/Stop playing MIDI file    | 7E								      |
-| Start/Stop reverb effect        | 5F		                  |
+| Start/Stop playing MIDI file    | 7E			    |
+| Start/Stop reverb effect        | 5F		            |
 | Note On                         | 10 nn 0v                |                     
 | Note Off                        | 01 nn 0v                |                    
 | Upload MIDI file to the system  | 67 <MIDI file raw data> |
 
 - *nn* corresponds with the note code. Possible values are defined by the interval (hex numbers) [15, 6C]
 - *v* corresponds with intensityof the note (volume). Possible values are (hex numbers):
-        - *0*, Normal
-        - *1*, Very soft
-        - *2*, soft
-        - *4*, Hight
-        - *8*, Very hight
+    - *0*, Normal
+    - *1*, Very soft
+    - *2*, soft
+    - *4*, Hight
+    - *8*, Very hight
 
 ## Additional Notes
 The sound samples that this project use, are originally .wav files from the [FreePats project](http://freepats.zenvoid.org/Piano/acoustic-grand-piano.html) and the orignal author of these audio recording files, is Alexander Holm.
