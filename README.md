@@ -11,7 +11,7 @@ The android app is named as MySoc, and is located in the GitHub repository that 
 
 ## Purpose
 
-The purpose of this project is the creation of a base open-design to develop a polyphonic digital keyboard that can play a MIDI files. 
+The purpose of this project is the creation of a base open-design to develop a polyphonic digital keyboard that can play MIDI files. 
 
 This project aims to be a solid base for future improvements in MIDI file compatibility. At the same time, this project intends to be the first approach to wavetable sound synthesis which is commonly used in current digital pianos. 
 
