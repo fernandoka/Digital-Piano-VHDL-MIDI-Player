@@ -24,12 +24,12 @@
 --		if readRqt(0) read will be done in check mode, and no waiting time no commands to the keyboard will be send.
 --		if readRqt(1) read will be done in play mode,  commands to the keyboard will be send and waiting time will be enable.
 --
---		Command format: cmd(3 downto 0) = velocity
---					 	cmd(11 downto 4) = note code
---                      cmd(12) = when high, note on	
---						cmd(13) = when high, note off
---                      cmd(14) = when high cmd from externKeyboard, when low cmd from midi parser 
---						Null command when -> cmd(9 downto 0) = (others=>'0') 
+--		Command format: cmd(3 downto 0) = Velocity
+--					 	cmd(11 downto 4) = NoteCode
+--                      cmd(13 downto 12) = 01, note off	
+--						cmd(13 downto 12) = 10, note on 
+--                      cmd(14) = SourceIndex, when high, comes from extern interface, otherwise comes from MidiParser component
+ 
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

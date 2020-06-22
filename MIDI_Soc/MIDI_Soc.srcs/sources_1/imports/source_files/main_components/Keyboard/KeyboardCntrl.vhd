@@ -17,9 +17,8 @@
 -- Additional Comments:
 --		Command format: cmd(3 downto 0) = Velocity
 --					 	cmd(11 downto 4) = NoteCode
---						cmd(13 downto 12) = CMD
---                      cmd(12) = when high, note on	
---						cmd(13) = when high, note off
+--                      cmd(13 downto 12) = 01, note off	
+--						cmd(13 downto 12) = 10, note on 
 --                      cmd(14) = SourceIndex, when high, comes from extern interface, otherwise comes from MidiParser component
 --
 --  NUM_NOTES_GEN = 2**k
