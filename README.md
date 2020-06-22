@@ -52,8 +52,8 @@ The hardware design is developed to be implemented in an FPGA platform, allowing
 | -------- | -----------------------------------------------|
 | Start/Stop playing MIDI file    | 7E			    |
 | Start/Stop reverb effect        | 5F		            |
-| Note On                         | 10 nn 0v                |                     
-| Note Off                        | 01 nn 0v                |                    
+| Note On                         | 2 nn 0v                |                     
+| Note Off                        | 1 nn 0v                |                    
 | Upload MIDI file to the system  | 67 <MIDI file raw data> |
 
 - *nn* corresponds with the note code. Possible values are defined by the interval (hex numbers) [15, 6C]
