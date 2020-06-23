@@ -2,7 +2,7 @@
 -- Engineer: 
 -- 	Fernando Candelario Herrero
 --
--- Revision 1.1
+-- Revision 1.2
 -- Additional Comments: 
 --		These signals follow a Q32.32 fix format:	stepVal_In					
 --      											sustainStepStart_In	
@@ -257,7 +257,7 @@ VelocityMul:    -- Very High intensity, 4.0
                     -- Attack+Decay+Sustain+Release phase
                     -- In sustain/release phase, use of a constant to reduce the amplitud of the sound
                     if noteOnOffFlag or (not noteOnOffFlag and valueForReleaseDecay/=0) then
-                        state := getSample0;
+                        state := waitCmdAck;
                         -- Order read rqt
                         memSamplesSendRqt <= '1';
                         
