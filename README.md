@@ -70,3 +70,5 @@ The sound samples that this project use, are originally .wav files from the [Fre
 Downloaded from the "Salamander Grand Piano" section
 
 File entry in the site -> "1.18GiB Best quality. 48kHz 24bit samples"
+
+The .mid files are originally from [Musescore](https://musescore.org/es) and from [BitMidi](https://bitmidi.com/)
