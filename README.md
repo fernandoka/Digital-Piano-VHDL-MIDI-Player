@@ -72,3 +72,7 @@ Downloaded from the "Salamander Grand Piano" section
 File entry in the site -> "1.18GiB Best quality. 48kHz 24bit samples"
 
 The .mid files are originally from [Musescore](https://musescore.org/es) and from [BitMidi](https://bitmidi.com/)
+
+Releated Videos: 
+- Xilinx Open Hardware design 2020 Contest, entry video: https://youtu.be/jNLy6Ekm484
+- MIDI file Hardware Player (Project presentation): https://youtu.be/rm-5wACBFLk
